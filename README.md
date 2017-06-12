@@ -5,7 +5,7 @@ Dockerfile for [PlatformIO](http://platformio.org/) Core, containing the platfor
 ## Usage
 Pull the image
 ```
-pull sglahn/platformio-core:latest
+pull sglahn/docker-platformio-core:latest
 ```
 Create and start a Docker container
 ```
@@ -13,8 +13,8 @@ docker create -i --tty \
             -v <PROJECT_DIR>:/workspace \
             -u `id -u $USER`:`id -g $USER` \
             --device=/dev/ttyUSB0 \
-            --name platformio
-            sglahn/platformio-core:latest
+            --name platformio \
+            sglahn/docker-platformio-core:latest
 docker start -i platformio
 ```
 With <PROJECT_DIR> as the directory containing your work, e.g. ~/Workspace/. Now you can create a new project
