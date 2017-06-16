@@ -43,5 +43,5 @@ docker run --rm \
     -u `id -u $USER`:`id -g $USER` \
     --device=/dev/ttyUSB0 \
     sglahn/platformio-core:latest \
-    upload
+    run -t upload
 ```
