@@ -1,2 +1,2 @@
 .dockerignore
-run_platformio.sh
+platformio.sh
