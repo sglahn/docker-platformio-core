@@ -1,8 +1,6 @@
 FROM python:2.7
 MAINTAINER Sebastian Glahn "hi@sgla.hn"
 
-RUN useradd me
-
 ENV APP_VERSION="3.3.1" \
     APP="platformio"
 
@@ -13,7 +11,6 @@ RUN pip install -U platformio==3.3.1 && \
      platformio platform install espressif8266 && \
      mkdir -p /workspace
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["platformio"]
 WORKDIR /workspace
-USER me
 

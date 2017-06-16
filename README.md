@@ -1,31 +1,47 @@
 # Docker PlatformIO Core
-
-Dockerfile for [PlatformIO](http://platformio.org/) Core, containing the platformio Command Line Interface for developing with embedded Devices and IoT projects. This image has the platform espressif8266 already installed.
+This is a Dockerfile packaging [PlatformIO](http://platformio.org/) Core. The image contains the PlatformIO Command Line Interface for developing software for embedded devices and IoT projects. 
+To speedup development, this image has the platform espressif8266 already installed.
 
 ## Usage
 Pull the image
 ```
-pull sglahn/docker-platformio-core:latest
+pull sglahn/platformio-core:latest
 ```
-Create and start a Docker container
+Run a Docker container
 ```
-docker create -i --tty \
-            -v <PROJECT_DIR>:/workspace \
-            -u `id -u $USER`:`id -g $USER` \
-            --device=/dev/ttyUSB0 \
-            --name platformio \
-            sglahn/docker-platformio-core:latest
-docker start -i platformio
+docker run --rm \
+    -v <PROJECT_DIR>:/workspace \
+    -u `id -u $USER`:`id -g $USER` \
+    --device=/dev/ttyUSB0 \
+    sglahn/platformio-core:latest \
 ```
-With <PROJECT_DIR> as the directory containing your work, e.g. ~/Workspace/. Now you can create a new project
+With <PROJECT_DIR> as the directory containing your work, e.g. ~/Workspace/myproject/.
+
+## Examples
+ With this Docker image you can for example, create a new project:
 ```
-platformio init --board uno
+docker run --rm \
+    -v `pwd`:/workspace \
+    -u `id -u $USER`:`id -g $USER` \
+    --device=/dev/ttyUSB0 \
+    sglahn/platformio-core:latest \
+    init --board uno
 ```
-Compile
+Compile a project:
 ```
-platformio run
+docker run --rm \
+    -v `pwd`:/workspace \
+    -u `id -u $USER`:`id -g $USER` \
+    --device=/dev/ttyUSB0 \
+    sglahn/platformio-core:latest \
+    run
 ```
-And upload
+Or upload your project to a board connected to the PC:
 ```
-platformio run -t upload
+docker run --rm \
+    -v `pwd`:/workspace \
+    -u `id -u $USER`:`id -g $USER` \
+    --device=/dev/ttyUSB0 \
+    sglahn/platformio-core:latest \
+    upload
 ```
