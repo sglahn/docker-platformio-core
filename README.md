@@ -50,7 +50,7 @@ docker run --rm \
 ## Keep Configuration
 If you want to keep the downloaded packages, etc. you can save the PlatformIO configuration outside of the container. You can do this by adding the following line to the docker run call:
 ```
--v `$HOME/.platformio`:/workspace \
+-v `$HOME/.platformio`:/.platformio \
 ```
 This will install the package in your home directory. Alternatively you could use a Data Volume Container to save the PlatformIO configuration. First create the Data Volume Container
 ```
@@ -58,7 +58,7 @@ docker run --name vc_platformio sglahn/vc_platformio:latest
 ```
 Then add the following line to the docker run call:
 ```
---volumes-from=vc_platformio
+--volumes-from=vc_platformio \
 ```
 
 
