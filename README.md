@@ -3,7 +3,11 @@ This is a Dockerfile packaging [PlatformIO](http://platformio.org/) Core. The im
 To speedup development, this image has the platform espressif8266 already installed.
 
 ## Usage
-Add the script platformio.sh to your path and run platformio < options >.
+Add the script platformio.sh to your path and run platformio < options >. 
+
+### Uploading
+For convenience, the scripts checks if the host device /dev/ttyUSB0 is available and adds this device to the Docker container. You can override this device by setting the environment variable UPLOAD_PORT.
+
 ### Step By Step
 Pull the image
 ```
