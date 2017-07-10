@@ -4,13 +4,13 @@ MAINTAINER Sebastian Glahn "hi@sgla.hn"
 ENV APP_VERSION="3.3.1" \
     APP="platformio"
 
-LABEL base.name="platformio-core" \
-      base.version="${APP_VERSION}"
+LABEL app.name="platformio-core" \
+      app.version="${APP_VERSION}"
 
 RUN pip install -U platformio==3.3.1 && \
-     platformio platform install espressif8266 && \
-     mkdir -p /workspace
+    platformio platform install espressif8266 && \
+    mkdir -p /workspace
 
-ENTRYPOINT ["platformio"]
 WORKDIR /workspace
 
+ENTRYPOINT ["platformio"] 
