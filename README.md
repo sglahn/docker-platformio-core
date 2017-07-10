@@ -6,9 +6,9 @@ To speedup development, this image has the platform espressif8266 already instal
 Add the script platformio.sh to your path and run platformio < options >. 
 
 ### Uploading
-For convenience, the scripts checks if the host device /dev/ttyUSB0 is available and adds this device to the Docker container. You can override this device by setting the environment variable UPLOAD_PORT.
+For convenience, the script checks if the host device /dev/ttyUSB0 is available and adds this device to the Docker container. You can override this device by setting the environment variable UPLOAD_PORT.
 
-### Step By Step
+## Step By Step
 Pull the image
 ```
 pull sglahn/docker-platformio-core:latest
