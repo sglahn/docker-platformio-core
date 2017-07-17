@@ -2,7 +2,7 @@
 
 VOLUME_CONTAINER_NAME=vc_platformio
 VOLUME_CONTAINER_IMAGE=sglahn/vc_platformio:latest
-IMAGE_NAME=sglahn/platformio-core:3.3.1
+IMAGE_NAME=sglahn/platformio-core:3.4.0
 
 if [ ! "$(docker ps -a | grep $VOLUME_CONTAINER_NAME)" ]; then
     docker run -u `id -u $USER`:`id -g $USER` --name $VOLUME_CONTAINER_NAME $VOLUME_CONTAINER_IMAGE
