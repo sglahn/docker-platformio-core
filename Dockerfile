@@ -7,7 +7,7 @@ ENV APP_VERSION="3.6.0" \
 LABEL app.name="platformio-core" \
       app.version="${APP_VERSION}"
 
-RUN pip install -U platformio==3.6.0 && \
+RUN pip install -U ${APP}==${APP_VERSION} && \
     mkdir -p /workspace
 
 WORKDIR /workspace
