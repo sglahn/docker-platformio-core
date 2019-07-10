@@ -11,7 +11,7 @@ For convenience, the script checks if the host device /dev/ttyUSB0 is available 
 ## Step By Step
 Pull the image
 ```
-pull sglahn/docker-platformio-core:latest
+docker pull sglahn/platformio-core:latest
 ```
 Run a Docker container
 ```
