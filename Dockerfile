@@ -1,13 +1,13 @@
-FROM python:2.7
-MAINTAINER Sebastian Glahn "hi@sgla.hn"
+FROM python:3.7.4-alpine3.9
 
-ENV APP_VERSION="3.6.0" \
-    APP="platformio"
+ENV APP_VERSION="4.0.0" \
+    APP="platformio-core"
 
-LABEL app.name="platformio-core" \
-      app.version="${APP_VERSION}"
+LABEL app.name="${APP}" \
+      app.version="${APP_VERSION}" \
+      maintainer="Sebastian Glahn <hi@sgla.hn>"
 
-RUN pip install -U platformio==3.6.0 && \
+RUN pip install -U platformio==${APP_VERSION} && \
     mkdir -p /workspace
 
 WORKDIR /workspace
