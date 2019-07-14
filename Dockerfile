@@ -8,7 +8,9 @@ LABEL app.name="${APP}" \
       maintainer="Sebastian Glahn <hi@sgla.hn>"
 
 RUN pip install -U platformio==${APP_VERSION} && \
-    mkdir -p /workspace
+    mkdir -p /workspace && \
+    mkdir -p /.platformio && \
+    chmod a+rwx /.platformio
 
 WORKDIR /workspace
 
