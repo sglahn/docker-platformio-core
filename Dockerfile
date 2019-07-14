@@ -13,3 +13,5 @@ RUN pip install -U platformio==${APP_VERSION} && \
 WORKDIR /workspace
 
 ENTRYPOINT ["platformio"] 
+
+USER 1001
