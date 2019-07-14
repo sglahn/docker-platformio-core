@@ -15,7 +15,9 @@ fi
 if [ "$UPLOAD_PORT" ]; then
     DEVICE=$UPLOAD_PORT
 fi
-echo "Using upload port $DEVICE"
+if [ "$DEVICE" ]; then
+    echo "Using upload port $DEVICE"
+fi
 
 docker run --rm \
     -v `pwd`:/workspace \
