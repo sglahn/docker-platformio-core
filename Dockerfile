@@ -1,7 +1,7 @@
 FROM python:3.7-slim
 
-ENV APP_VERSION="4.0.0" \
-    APP="platformio-core"
+ENV APP_VERSION="4.3.1" \
+    APP="platformio"
 
 LABEL app.name="${APP}" \
       app.version="${APP_VERSION}" \
