@@ -2,7 +2,51 @@
 This is a Dockerfile packaging [PlatformIO](http://platformio.org/) Core. The image contains the PlatformIO Command Line Interface for developing software for embedded devices and IoT projects. 
 To speedup development, this image has the platform espressif8266 already installed.
 
-## Usage
+## Continuous Integration
+### Github Actions
+It is very easy to have CI features for your project using [GitHub Actions](https://github.com/features/actions) and this Docker image. To set this up, create a file called build.yml in the folder .github/workflows and add the following content:
+```
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://sglahn/platformio-core:latest
+        with:
+          args: run
+```
+This will trigger a build with platformio-core on every push in every branch.
+
+### Jenkins Pipeline
+Here is a very simple [Jenkins pipeline](https://www.jenkins.io/doc/book/pipeline/) example:
+```
+pipeline {
+    agent any
+    triggers { cron('H 4/* 0 0 1-5') }
+
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/platformio/platformio-examples.git'
+
+                sh 'docker run --rm \
+                    --mount type=bind,source="$(pwd)/wiring-blink",target=/workspace \
+                    -u `id -u $USER`:`id -g $USER` \
+                    sglahn/platformio-core:latest \
+                    run'
+            }
+        }
+    }
+}
+```
+Jenkins will periodically poll the SCM repository for changes and trigger a build with platformio-core.
+
+## Manual Usage
 Add the script platformio.sh to your path and run platformio < options >. 
 
 ### Uploading
