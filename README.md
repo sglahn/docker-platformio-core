@@ -1,5 +1,6 @@
 # Docker PlatformIO Core
-[![Docker Pulls](https://img.shields.io/docker/pulls/sglahn/platformio-core.svg)]
+![Docker Pulls](https://img.shields.io/docker/pulls/sglahn/platformio-core.svg)
+
 This is a Dockerfile packaging [PlatformIO](http://platformio.org/) Core. The image contains the PlatformIO Command Line Interface for developing software for embedded devices and IoT projects. 
 To speedup development, this image has the platform espressif8266 already installed.
 
