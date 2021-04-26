@@ -18,7 +18,7 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-          images: lazyzero/docker-platformio-core  # list of Docker images to use as base name for tags
+          images: ${{ secrets.DOCKERHUB_IMAGE }}  # list of Docker images to use as base name for tags
           tag-sha: false            # add git short SHA as Docker tag, e.g.: sha-12affe0
           tag-latest: true         # disabled here for demonstration purposes
           tag-semver: | 
