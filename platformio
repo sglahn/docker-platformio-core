@@ -22,7 +22,7 @@ fi
 docker run --rm \
     -v `pwd`:/workspace \
     --volumes-from=$VOLUME_CONTAINER_NAME \
-    -u `id -u $USER`:`id -g $USER` \
+    -u `id -u $USER`:`id -g $USER` --group-add=dialout \
     $DEVICE \
     $IMAGE_NAME \
     $@
